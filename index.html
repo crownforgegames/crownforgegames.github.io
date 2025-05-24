@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Dustbite Games</title>
+
+    <link rel="stylesheet" href="/css/index.css">
+
+    <link
+        rel="stylesheet"
+        media="(prefers-color-scheme:light)"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
+    />
+    <link
+        rel="stylesheet"
+        media="(prefers-color-scheme:dark)"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css"
+        onload="document.documentElement.classList.add('sl-theme-dark');"
+    />
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+</head>
+<body>
+    <iframe src="/components/topbar.html" frameborder="0"></iframe>
+
+    <section id="start">
+        <img src="/assets/welcome-background.png" alt="" id="welcome-background">
+        <div id="welcome-content">
+            <img src="assets/studio_logo_transparent.png" alt="" id="welcome-logo">
+            <h1 id="welcome-text">Welcome to Dustbite Games</h1>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <h1 id="about-us-header">About Us</h1>
+        <p id="about-us-text">
+            Dustbite Games is a game development studio founded by <a href="https://x.com/ObiSpam_" style="color: rgb(0, 140, 255);">@Paulteus</a>.
+            Our main focus is on creating immersive, open world games that offer players a unique and engaging experience. To check out what we're currently
+            working on, visit our <a href="/pages/games" style="color: rgb(0, 255, 106);">games page</a>.
+        </p>
+    </section>
+
+    <footer>
+        <div class="footer-buttons">
+        <a href="https://www.roblox.com/communities/36022187" target="_blank"><img src="/assets/roblox-logo.png" alt="Roblox Icon">Join our Roblox Group</a>
+        <a href="https://discord.gg/2BhcDAZfAt" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-256/discord-3-569463.png" alt="Discord Icon">Join our Discord Server</a>
+        </div>
+        &copy; 2025 Dustbite Games. All rights reserved.
+  </footer>
+</body>
+</html>
