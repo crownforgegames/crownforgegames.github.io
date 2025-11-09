@@ -19,6 +19,8 @@ iframe {
 html {
     overflow-x: hidden;
     font-family: "Inter";
+
+    background-color: var(--background-color);
 }
 
 a {
