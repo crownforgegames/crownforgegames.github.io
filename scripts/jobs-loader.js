@@ -1,4 +1,4 @@
-const GIST_API = "https://api.github.com/gists/585f1fffc569eebe7112436490db6649"; 
+const GIST_API = "https://api.github.com/gists/585f1fffc569eebe7112436490db6649";
 
 fetch(GIST_API)
     .then(res => res.json())
@@ -12,6 +12,8 @@ fetch(GIST_API)
             const card = document.createElement("div");
             card.classList.add("game-card");
 
+            const onClickEvent = `notifyClick("apply for ${job.title}")`;
+
             card.innerHTML = `
                 ${job.image ? `<img src="${job.image}" alt="${job.title}">` : ''}
                 <div class="card-info">
@@ -19,7 +21,7 @@ fetch(GIST_API)
                     <span class="job-type">${job.type}</span>
                     <span class="job-type">${job.experience} Experience Required</span>
                     <p>${job.description}</p>
-                    <a href="${job.applyLink}" target="_blank" class="game-button">Apply Now</a>
+                    <a href="${job.applyLink}" target="_blank" class="game-button" onclick='${onClickEvent}'>Apply Now</a>
                 </div>
             `;
 
