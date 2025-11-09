@@ -1,10 +1,12 @@
-#games-container, #jobs-container {
+#games-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 3rem;
     width: 90%;
     margin: 0 auto 80px;
+
+    min-height: 500px;
 }
 
 .game-card {

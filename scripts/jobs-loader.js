@@ -1,6 +1,11 @@
-fetch("https://gist.githubusercontent.com/crownforgegames/585f1fffc569eebe7112436490db6649/raw/35eecb73d71b10665570bfb1845069f7d276831b/jobs.json")
+const GIST_API = "https://api.github.com/gists/585f1fffc569eebe7112436490db6649"; 
+
+fetch(GIST_API)
     .then(res => res.json())
-    .then(jobs => {
+    .then(data => {
+        const file = data.files["jobs.json"];
+        const jobs = JSON.parse(file.content);
+
         const container = document.getElementById("jobs-container");
 
         jobs.forEach((job, index) => {
