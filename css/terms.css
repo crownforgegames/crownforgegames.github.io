@@ -1,0 +1,98 @@
+/* Terms page content styling */
+#terms-section {
+    max-width: 900px;
+    margin: 120px auto 80px;
+    /* matches hero spacing */
+    padding: 0 20px;
+    color: #ddd;
+    line-height: 1.7;
+}
+
+#terms-section h1 {
+    font-size: 56pt;
+    font-weight: 700;
+    color: #f0c674;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(240, 198, 116, 0.5);
+    margin-bottom: 40px;
+}
+
+#terms-section h2 {
+    font-size: 28pt;
+    color: #f0c674;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+#terms-section p {
+    font-size: 16pt;
+    margin-bottom: 20px;
+}
+
+#terms-section a {
+    color: #f0c674;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    #terms-section h1 {
+        font-size: 36pt;
+    }
+
+    #terms-section h2 {
+        font-size: 24pt;
+    }
+
+    #terms-section p {
+        font-size: 14pt;
+    }
+}
+
+#contract-section {
+    max-width: 900px;
+    margin: 60px auto 80px;
+    padding: 0 20px;
+    color: #ddd;
+    line-height: 1.7;
+}
+
+#contract-section h1 {
+    font-size: 56pt;
+    font-weight: 700;
+    color: #f0c674;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(240, 198, 116, 0.5);
+    margin-bottom: 40px;
+}
+
+#contract-section p {
+    font-size: 16pt;
+    margin-bottom: 20px;
+    
+}
+
+#contract-section .game-button {
+    background-color: #f0c674;
+    color: #121212;
+    font-weight: 600;
+    padding: 0.8em 1.8em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    
+}
+
+#contract-section .game-button:hover {
+    background-color: #ffe299;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    #contract-section h2 {
+        font-size: 28pt;
+    }
+    #contract-section p {
+        font-size: 14pt;
+    }
+}

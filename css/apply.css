@@ -1,0 +1,130 @@
+/* Cards Container */
+#jobs-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    width: 90%;
+    margin: 0 auto 80px;
+}
+
+/* Job Card */
+.game-card {
+    position: relative;
+    background-color: #131218;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(240,198,116,0.2);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    opacity: 0;                /* start invisible */
+    transform: translateY(30px); /* start slightly lower */
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* Visible state: fade in + slide up */
+.game-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card Hover Glow */
+.game-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 0 40px rgba(240,198,116,0.5),
+        0 0 80px rgba(240,198,116,0.35);
+}
+
+/* Image section (optional placeholder for company/hero image) */
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Gradient overlay between image and text */
+.game-card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(19,18,24,0) 0%, rgba(19,18,24,1) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Info section */
+.game-card .card-info {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+}
+
+.game-card h2 {
+    font-size: 24pt;
+    color: #f0c674;
+    margin: 0 0 10px;
+    text-shadow: 0 0 10px rgba(240,198,116,0.5);
+}
+
+.game-card p {
+    font-size: 16pt;
+    color: #ddd;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+/* Job type label */
+.job-type {
+    display: inline-block;
+    background: rgba(240,198,116,0.2);
+    color: #f0c674;
+    padding: 2px 8px;
+    font-size: 12pt;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* Apply Button */
+.game-button {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #f0c674;
+    color: #121212;
+    font-weight: 600;
+    padding: 0.8em 1.8em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.game-button:hover {
+    background-color: #ffe299;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    #jobs-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .game-card h2 { font-size: 20pt; }
+    .game-card p { font-size: 14pt; }
+}
+
+/* Glow Header for Apply / Jobs Section */
+.glow-header {
+    font-size: 56pt;
+    font-weight: 700;
+    color: #f0c674;
+    text-align: center;
+    margin-bottom: 40px;
+}

@@ -1,6 +1,6 @@
 const gamesContainer = document.getElementById('games-container');
 
-fetch('/data/games.json').then(response => response.json()).then(games => {games.forEach((game, index) => {
+fetch('https://gist.githubusercontent.com/crownforgegames/585f1fffc569eebe7112436490db6649/raw/35eecb73d71b10665570bfb1845069f7d276831b/games.json').then(response => response.json()).then(games => {games.forEach((game, index) => {
 
     const card = document.createElement('div');
     card.classList.add('game-card');

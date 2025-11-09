@@ -76,12 +76,25 @@ a {
     animation: fadeIn 1.2s ease-out forwards;
 }
 
+/* old logo style (non-transparent background)
 .hero-logo {
     width: 160px;
     height: 160px;
     border-radius: 50%;
     margin-bottom: 1em;
     box-shadow: 0 0 30px rgba(240, 198, 116, 0.5);
+}
+*/
+
+.hero-logo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+
+    /* Per-pixel glow following image */
+    filter: drop-shadow(0 0 20px rgba(240,198,116,0.6))
+            drop-shadow(0 0 40px rgba(240,198,116,0.3));
 }
 
 .hero-title {
