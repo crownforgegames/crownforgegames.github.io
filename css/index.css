@@ -34,78 +34,215 @@ a {
     text-decoration: none;
 }
 
-#start {
+/* Hero Section */
+#hero {
+    position: relative;
     width: 100vw;
-    margin: 0 0;
-    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
-#start > #welcome-background {
+/* Background + Overlay */
+.hero-background img {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-
-    z-index: -1;
-    
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(60%) saturate(120%);
 }
 
-#welcome-content {
+.hero-overlay {
     position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.85) 90%);
+    z-index: -1;
+}
 
+/* Hero Content */
+.hero-content {
     text-align: center;
-
-    width: 50vw;
+    animation: fadeIn 1.2s ease-out forwards;
 }
 
-#welcome-content > #welcome-logo {
-    height: 20vh;
-
-    border-radius: 100%;
-
-    margin-bottom: 0px;
+.hero-logo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    box-shadow: 0 0 30px rgba(240, 198, 116, 0.5);
 }
 
-#welcome-content > #welcome-text {
-    margin-top: -2px;
-    font-size: 50pt;
-
-    font-weight:600;
-
-    color: #201408;
+.hero-title {
+    font-size: 56pt;
+    font-weight: 700;
+    margin: 0.2em 0;
+    color: #f0c674;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
+
+.hero-subtitle {
+    font-size: 18pt;
+    font-weight: 300;
+    color: #ddd;
+    margin-bottom: 1.5em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-button {
+    background-color: #f0c674;
+    color: #121212;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.8em 1.8em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #ffe299;
+    transform: translateY(-3px);
+}
+
 
 #about-us {
-    background-color: var(--background-color);
-
+    position: relative;
     width: 100vw;
-    height: 30vh;
-
-    z-index: 200;
-    margin-top: 94vh;
-
+    min-height: 20vh; /* Reduced height */
     text-align: center;
+    background-color: var(--background-color);
+    color: #fff;
+    padding: 80px 0 40px; /* less bottom space */
+    z-index: 10;
 
-    padding-bottom: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+#about-us.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient now blends to About Us section */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, var(--background-color) 100%);
+    z-index: -1;
 }
 
 #about-us-header {
-    padding-top: 50px;
-
-    font-size: 40pt;
-    font-weight: 600;
+    margin: 0;
+    font-size: 48pt;
+    font-weight: 700;
+    color: #f0c674;
+    text-shadow: 0 0 15px rgba(0,0,0,0.7);
+    padding-bottom: 20px;
 }
 
 #about-us-text {
-    font-size: 23pt;
+    font-size: 18pt;
     font-weight: 300;
+    line-height: 1.4;
+    width: 60vw;
+    margin: 0 auto;
+    color: #ddd;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 
-    margin: auto;
-    width: 50vw;
+
+
+.ember-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.ember {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #f0c674 0%, rgba(240, 198, 116, 0) 70%);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: rise 6s linear infinite;
+    filter: blur(0.5px);
+}
+
+/* Vary ember movement */
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #about-us-text {
+        width: 85vw;
+        font-size: 14pt;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 36pt;
+    }
+
+    .hero-subtitle {
+        font-size: 14pt;
+        padding: 0 1em;
+    }
+
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 footer {

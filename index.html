@@ -1,52 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Dustbite Games</title>
+    <title>Home - Crownforge Games</title>
 
     <link rel="stylesheet" href="/css/index.css">
 
-    <link
-        rel="stylesheet"
-        media="(prefers-color-scheme:light)"
-        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
-    />
-    <link
-        rel="stylesheet"
-        media="(prefers-color-scheme:dark)"
+    <link rel="stylesheet" media="(prefers-color-scheme:light)"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <link rel="stylesheet" media="(prefers-color-scheme:dark)"
         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css"
-        onload="document.documentElement.classList.add('sl-theme-dark');"
-    />
-
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+        onload="document.documentElement.classList.add('sl-theme-dark');" />
 </head>
+
 <body>
     <iframe src="/components/topbar.html" frameborder="0"></iframe>
 
-    <section id="start">
-        <img src="/assets/welcome-background.png" alt="" id="welcome-background">
-        <div id="welcome-content">
-            <img src="assets/studio_logo_transparent.png" alt="" id="welcome-logo">
-            <h1 id="welcome-text">Welcome to Dustbite Games</h1>
+    <section id="hero">
+        <div class="hero-background">
+            <img src="/assets/background-banner.jpeg" alt="Crownforge Background">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <img src="/assets/CrownforgeGamesLogo.png" alt="Crownforge Games Logo" class="hero-logo">
+            <h1 class="hero-title">Crownforge Games</h1>
+            <p class="hero-subtitle">Creating original and immersive games.</p>
+            <a href="/pages/games.html" class="hero-button">Explore Our Games</a>
         </div>
     </section>
 
     <section id="about-us">
+        <div class="ember-container"></div>
+
         <h1 id="about-us-header">About Us</h1>
         <p id="about-us-text">
-            Dustbite Games is a game development studio founded by <a href="https://x.com/ObiSpam_" style="color: rgb(0, 140, 255);">@Paulteus</a>.
-            Our main focus is on creating immersive, open world games that offer players a unique and engaging experience. To check out what we're currently
-            working on, visit our <a href="/pages/games" style="color: rgb(0, 255, 106);">games page</a>.
+            Crownforge Games is a game development studio founded by <a href="https://x.com/the_paulteus"
+                style="color: rgb(0, 140, 255);" target="_blank">@Paulteus</a>.
+            Our main focus is on creating immersive, open world games that offer players a unique and engaging
+            experience. To check out what we're currently
+            working on, visit our <a href="/pages/games.html" style="color: rgb(0, 255, 106);">games page</a>.
         </p>
     </section>
 
     <footer>
         <div class="footer-buttons">
-        <a href="https://www.roblox.com/communities/36022187" target="_blank"><img src="/assets/roblox-logo.png" alt="Roblox Icon">Join our Roblox Group</a>
-        <a href="https://discord.gg/2BhcDAZfAt" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-256/discord-3-569463.png" alt="Discord Icon">Join our Discord Server</a>
+            <a href="https://www.roblox.com/communities/36022187" target="_blank"><img src="/assets/roblox-logo.png"
+                    alt="Roblox Icon">Join our Roblox Group</a>
+            <a href="https://discord.gg/2BhcDAZfAt" target="_blank"><img
+                    src="https://cdn.iconscout.com/icon/free/png-256/discord-3-569463.png" alt="Discord Icon">Join our
+                Discord Server</a>
         </div>
-        &copy; 2025 Dustbite Games. All rights reserved.
-  </footer>
+        &copy; 2025 Crownforge Games. All rights reserved.
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const bg = document.querySelector('.hero-background img');
+            bg.style.transform = `translate(-50%, ${window.scrollY * 0.3}px)`;
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const bg = document.querySelector('.hero-background img');
+            const aboutSection = document.querySelector('#about-us');
+
+            // Parallax background movement
+            const scrollY = window.scrollY;
+            bg.style.transform = `translate(-50%, ${scrollY * 0.3}px)`;
+
+            // Fade-in for About Us section
+            const triggerPoint = window.innerHeight * 0.7;
+            if (aboutSection.getBoundingClientRect().top < triggerPoint) {
+                aboutSection.classList.add('visible');
+            }
+        });
+    </script>
+
+    <script>
+        // Forge ember effect
+        const emberContainer = document.querySelector('.ember-container');
+
+        function createEmber() {
+            const ember = document.createElement('div');
+            ember.classList.add('ember');
+
+            // random start position and delay
+            ember.style.left = Math.random() * 100 + '%';
+            ember.style.animationDuration = 4 + Math.random() * 4 + 's';
+            ember.style.animationDelay = Math.random() * 4 + 's';
+            ember.style.opacity = 0.4 + Math.random() * 0.6;
+            ember.style.width = ember.style.height = 2 + Math.random() * 3 + 'px';
+
+            emberContainer.appendChild(ember);
+
+            // Remove ember after it leaves the view
+            setTimeout(() => {
+                ember.remove();
+            }, 8000);
+        }
+
+        // Generate embers periodically
+        setInterval(createEmber, 100);
+    </script>
+
 </body>
+
 </html>
