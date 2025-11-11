@@ -7,7 +7,8 @@ function getCookie(name) {
 }
 
 function setCookie(name, value) {
-    document.cookie = `${name}=${value}; path=/`;
+    const expires = new Date("2099-12-31T23:59:59Z").toUTCString();
+    document.cookie = `${name}=${value}; path=/; expires=${expires}`;
 }
 
 function sendDiscordMessage(content) {
