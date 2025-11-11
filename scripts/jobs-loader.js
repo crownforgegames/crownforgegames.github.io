@@ -21,8 +21,6 @@ fetch(GIST_API)
             const card = document.createElement("div");
             card.classList.add("game-card");
 
-            const onClickEvent = `notifyClick("apply for ${job.title}")`;
-
             card.innerHTML = `
                 ${job.image ? `<img src="${job.image}" alt="${job.title}">` : ''}
                 <div class="card-info">
@@ -30,7 +28,7 @@ fetch(GIST_API)
                     <span class="job-type">${job.type}</span>
                     <span class="job-type">${job.experience} Experience Required</span>
                     <p>${job.description}</p>
-                    <a href="/form.html?id=${job.id}&session=${SESSION_ID}" class="game-button" onclick='${onClickEvent}'>Apply Now</a>
+                    <a href="/form.html?id=${job.id}&session=${SESSION_ID}" class="game-button">Apply Now</a>
                 </div>
             `;
 
