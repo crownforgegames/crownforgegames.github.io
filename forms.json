@@ -1,0 +1,93 @@
+{
+  "eHbc24": {
+    "title": "Builder - Team A Application",
+    "questions": [
+      {
+        "type": "section",
+        "title": "Contact Information"
+      },
+      {
+        "type": "short answer",
+        "question": "What is your discord username?",
+        "required": true
+      },
+      {
+        "type": "short answer",
+        "question": "What is your roblox username?",
+        "required": true
+      },
+      
+      {
+        "type": "section",
+        "title": "Personal Information"
+      },
+      {
+        "type": "short answer",
+        "question": "How old are you?",
+        "required": true
+      },
+      {
+        "type": "scale",
+        "question": "What is your English level?",
+        "min": 1,
+        "max": 5,
+        "minLabel": "Poor",
+        "maxLabel": "Excellent",
+        "required": true
+      },
+      {
+        "type": "short answer",
+        "question": "What timezone do you live in?",
+        "required": true
+      },
+      {
+        "type": "short answer",
+        "question": "How many hours a day can you dedicate to this project?",
+        "required": true
+      },
+
+      {
+        "type": "section",
+        "title": "Experience"
+      },
+      {
+        "type": "scale",
+        "question": "How many years of experience do you have building in Roblox Studio??",
+        "min": 1,
+        "max": 10,
+        "minLabel": "",
+        "maxLabel": "",
+        "required": true
+      },
+      {
+        "type": "short answer",
+        "question": "What styles of building do you have experience in?",
+        "required": true
+      },
+      {
+        "type": "multiple choice",
+        "question": "Have you ever worked for a game studio?",
+        "options": ["Yes", "No"],
+        "required": true
+      },
+      {
+        "type": "short answer",
+        "question": "Do you have a portfolio website? If so, please insert the link below.",
+        "required": true
+      },
+      {
+        "type": "short answer",
+        "question": "Please provide at least two (2) links to games you have contributed to. This is only required if you answered 'no' to the previous question."
+      },
+
+      {
+        "type": "section",
+        "title": "Closing Questions"
+      },
+      {
+        "type": "short answer",
+        "question": "What is your expected payment for this project in Robux? Please answer with a specific amount."
+      }
+    ]
+  }
+}

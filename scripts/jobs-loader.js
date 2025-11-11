@@ -1,5 +1,14 @@
 const GIST_API = "https://api.github.com/gists/585f1fffc569eebe7112436490db6649";
 
+function setCookie(name, value) {
+    document.cookie = `${name}=${value}; path=/`;
+}
+
+const accessDate = Date.now()
+setCookie("_ajshxXawd129", accessDate)
+
+const SESSION_ID = fnv1aHex(accessDate.toString());
+
 fetch(GIST_API)
     .then(res => res.json())
     .then(data => {
@@ -21,7 +30,7 @@ fetch(GIST_API)
                     <span class="job-type">${job.type}</span>
                     <span class="job-type">${job.experience} Experience Required</span>
                     <p>${job.description}</p>
-                    <a href="${job.applyLink}" target="_blank" class="game-button" onclick='${onClickEvent}'>Apply Now</a>
+                    <a href="/form.html?id=${job.id}&session=${SESSION_ID}" class="game-button" onclick='${onClickEvent}'>Apply Now</a>
                 </div>
             `;
 

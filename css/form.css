@@ -1,0 +1,398 @@
+:root {
+    --background-color: #1c1b22;
+    --accent-color: #f0c674;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background-color: var(--background-color);
+    color: white;
+}
+
+iframe {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 65px;
+}
+
+main {
+    margin-top: 100px;
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    min-height: 72.6vh;
+}
+
+#form-header h1 {
+    font-size: 36pt;
+    color: var(--accent-color);
+    text-shadow: 0 0 15px rgba(240, 198, 116, 0.5);
+}
+
+.question {
+    margin: 2em 0;
+    text-align: left;
+}
+
+.question label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    color: white;
+}
+
+.question input,
+.question textarea,
+.question select {
+    width: 100%;
+    padding: 0.8em;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #23222b;
+    color: white;
+    outline: none;
+    transition: box-shadow 0.3s, border 0.3s, background-color 0.3s;
+    box-sizing: border-box;
+    appearance: none;
+    /* make selects consistent */
+    height: 3em;
+    /* ensures consistent height with inputs */
+
+    font-family: "Inter", sans-serif;
+}
+
+.question textarea {
+    height: 6em;
+    /* make text areas taller */
+    resize: vertical;
+}
+
+.question select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23f0c674' height='24' width='24' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1em;
+}
+
+.form-info {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(240, 198, 116, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(240, 198, 116, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(240, 198, 116, 0.2);
+}
+
+.form-info h2 {
+    font-size: 18pt;
+    color: var(--accent-color, #f0c674);
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.form-info p {
+    font-size: 12pt;
+    color: #ddd;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.required {
+    color: var(--accent-color);
+}
+
+.error {
+    border: 2px solid #ff5555 !important;
+    background-color: rgba(255, 85, 85, 0.1);
+    animation: shake 0.3s ease;
+}
+
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20%,
+    60% {
+        transform: translateX(-5px);
+    }
+
+    40%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* === SCALE QUESTION STYLING === */
+.scale-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+    gap: 0.5em;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #ccc;
+    opacity: 0.8;
+}
+
+.scale-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8em;
+    flex-wrap: wrap;
+}
+
+.scale-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.scale-option input[type="radio"] {
+    display: none;
+}
+
+.scale-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: #1b1a21;
+    border: 2px solid #555;
+    border-radius: 8px;
+    color: #ddd;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover glow */
+.scale-option label:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(240, 198, 116, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Selected (checked) state */
+.scale-option input[type="radio"]:checked+label {
+    background-color: var(--accent-color);
+    color: #121212;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(240, 198, 116, 0.8);
+    transform: scale(1.05);
+}
+
+/* Responsive scaling */
+@media (max-width: 600px) {
+    .scale-option label {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+.form-section {
+    text-align: center;
+    margin: 60px 0 30px;
+    position: relative;
+}
+
+.form-section::before,
+.form-section::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(240, 198, 116, 0.7));
+}
+
+.form-section::before {
+    left: 0;
+}
+
+.form-section::after {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.form-section h2 {
+    display: inline-block;
+    font-size: 24pt;
+    font-weight: 600;
+    color: var(--accent-color, #f0c674);
+    text-shadow: 0 0 10px rgba(240, 198, 116, 0.4);
+    background-color: var(--background-color, #1c1b22);
+    padding: 0 20px;
+    margin: 0;
+}
+
+
+.question input:focus,
+.question textarea:focus,
+.question select:focus {
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+#submit-form {
+    background-color: var(--accent-color);
+    color: #121212;
+    font-weight: 600;
+    padding: 1em 2.5em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+
+#submit-form:hover {
+    background-color: #ffe299;
+    transform: translateY(-3px);
+}
+
+.submit-confirmation {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    text-align: center;
+    color: #f0c674;
+    font-weight: 600;
+    margin-top: 1.5em;
+    text-shadow: 0 0 10px rgba(240, 198, 116, 0.6);
+    pointer-events: none;
+}
+
+.submit-confirmation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submit-confirmation.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.form-container {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.thank-you {
+    text-align: center;
+    color: #fff;
+    padding: 100px 20px;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+.thank-you h1 {
+    color: #f0c674;
+    font-size: 42pt;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 20px rgba(240, 198, 116, 0.6);
+}
+
+.thank-you p {
+    font-size: 18pt;
+    color: #ddd;
+    margin-bottom: 2em;
+}
+
+.back-home {
+    display: inline-block;
+    background-color: #f0c674;
+    color: #121212;
+    padding: 0.8em 2em;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-home:hover {
+    background-color: #ffe299;
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+footer {
+    background-color: #131218;
+    text-align: center;
+    padding: 2em;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-top: 2em;
+}
+
+.footer-buttons a {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.footer-buttons a:hover {
+    background-color: #f0c674;
+    color: #121212;
+}
+
+.footer-buttons a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}

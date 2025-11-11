@@ -1,0 +1,26 @@
+{
+    "x": [
+        {
+            "type": "multiple choice",
+            "question": "Select any option:",
+            "options": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        {
+            "type": "paragraph",
+            "question": "Tell us why you'd like to join."
+        },
+        {
+            "type": "scale",
+            "question": "How would you rate your overall experience?",
+            "min": 1,
+            "max": 5,
+            "minLabel": "Poor",
+            "maxLabel": "Excellent",
+            "required": true
+        }
+    ]
+}

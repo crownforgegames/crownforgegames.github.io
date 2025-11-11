@@ -42,7 +42,7 @@ async function notifyVisit() {
 }
 
 async function notifyClick(action) {
-    sendDiscordMessage(`<@834489773573406770> User performed action: ${action} at ${new Date().toLocaleString()}`);
+    //sendDiscordMessage(`<@834489773573406770> User performed action: ${action} at ${new Date().toLocaleString()}`);
 }
 
 notifyVisit()
