@@ -46,6 +46,9 @@ main {
     font-weight: 600;
     margin-bottom: 0.5em;
     color: white;
+
+    background-color: var(--background-color);
+    z-index: 2;
 }
 
 .question input,
@@ -395,4 +398,10 @@ footer {
     height: 20px;
     margin-right: 8px;
     filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .form-section::before, .form-section::after {
+        visibility: hidden;
+    }
 }
